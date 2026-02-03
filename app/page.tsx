@@ -53,14 +53,9 @@ export default function HomePage() {
 
         {/* CTA */}
         <div className="flex gap-4 justify-center mt-12">
-          <Link href="/signup">
+          <Link href="/dashboard">
             <Button size="lg" className="text-lg px-8">
-              Get Started Free
-            </Button>
-          </Link>
-          <Link href="/login">
-            <Button size="lg" variant="outline" className="text-lg px-8">
-              Log In
+              View Demo Dashboard
             </Button>
           </Link>
         </div>
