@@ -6,8 +6,8 @@ A YouTube content optimization tool that gives creators actionable suggestions b
 
 - **Frontend:** Next.js 14 (App Router), TypeScript, Tailwind CSS
 - **UI Components:** shadcn/ui
-- **Backend:** Next.js API Routes
-- **Database:** Supabase (PostgreSQL + Auth)
+- **Backend:** Next.js API Routes + Convex
+- **Database:** Convex (real-time database)
 - **Data Aggregation:** Phyllo API (YouTube data)
 - **Charts:** Recharts
 
@@ -50,17 +50,15 @@ A YouTube content optimization tool that gives creators actionable suggestions b
 ### 1. Prerequisites
 
 - Node.js 18+ installed
-- A Supabase account
+- A Convex account (free tier available)
 - A Phyllo account (sandbox mode is fine for testing)
 
-### 2. Supabase Setup
+### 2. Convex Setup
 
-1. Go to [supabase.com](https://supabase.com) and create a new project
-2. In the SQL Editor, run the schema from `supabase-schema.sql`
-3. Go to Settings > API and copy:
-   - Project URL
-   - `anon` key
-   - `service_role` key
+1. Install Convex CLI: `npm install -g convex`
+2. Create a new Convex project at [convex.dev](https://convex.dev)
+3. Run `npx convex dev` to set up your deployment
+4. The deployment URL will be generated (format: `https://[name].convex.cloud`)
 
 ### 3. Phyllo Setup
 
@@ -76,10 +74,9 @@ A YouTube content optimization tool that gives creators actionable suggestions b
 Create `.env.local` file:
 
 ```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+# Convex
+CONVEX_URL=https://your-deployment.convex.cloud
+NEXT_PUBLIC_CONVEX_URL=https://your-deployment.convex.cloud
 
 # Phyllo
 PHYLLO_CLIENT_ID=your_phyllo_client_id
@@ -94,6 +91,8 @@ npm install
 ```
 
 ### 6. Run Development Server
+
+This will run both the Next.js frontend and Convex backend in parallel:
 
 ```bash
 npm run dev
